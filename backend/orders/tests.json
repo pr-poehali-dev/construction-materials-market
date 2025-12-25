@@ -1,0 +1,44 @@
+{
+  "tests": [
+    {
+      "name": "Create order with valid data",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "customer_name": "Тестовый Клиент",
+        "customer_phone": "+7 (999) 123-45-67",
+        "customer_email": "test@example.com",
+        "delivery_address": "г. Москва, ул. Тестовая, д. 1",
+        "delivery_method": "Доставка курьером",
+        "payment_method": "Картой онлайн",
+        "comment": "Тестовый заказ",
+        "items": [
+          {
+            "product_id": 1,
+            "quantity": 10
+          }
+        ]
+      },
+      "expectedStatus": 201
+    },
+    {
+      "name": "Create order without required fields",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "customer_name": "Клиент"
+      },
+      "expectedStatus": 400,
+      "expectedBody": {
+        "error": "string"
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "OPTIONS request for CORS",
+      "method": "OPTIONS",
+      "path": "/",
+      "expectedStatus": 200
+    }
+  ]
+}
