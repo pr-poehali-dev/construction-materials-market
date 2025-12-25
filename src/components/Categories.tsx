@@ -98,7 +98,7 @@ const Categories = () => {
                 </div>
               </div>
 
-              <div className="p-5">
+              <div className="p-5 bg-[#ffffff] mx-0 my-[5px] rounded-0">
                 <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
                   {category.name}
                 </h3>
