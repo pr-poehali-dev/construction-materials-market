@@ -118,10 +118,7 @@ const Catalog = () => {
         <div className="grid lg:grid-cols-4 gap-8">
           <aside className="lg:col-span-1">
             <Card className="p-6 sticky top-24">
-              <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
-                <Icon name="SlidersHorizontal" size={20} />
-                Фильтры
-              </h3>
+              <h3 className="text-lg font-bold mb-4 flex items-center gap-2">Фильтры:</h3>
 
               <div className="space-y-6">
                 <div>
