@@ -66,7 +66,7 @@ const Hero = () => {
 </div>
                 </div>
                 <div className="text-right">
-                  <div className="text-2xl font-bold text-primary">450₽</div>
+                  <div className="text-2xl font-bold text-primary">60р</div>
                   <div className="text-xs text-muted-foreground">за мешок 50кг</div>
                 </div>
               </div>
