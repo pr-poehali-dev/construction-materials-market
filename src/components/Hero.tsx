@@ -62,7 +62,8 @@ const Hero = () => {
               <div className="flex items-center justify-between">
                 <div>
                   <div className="text-sm text-muted-foreground mb-1">Популярно сегодня</div>
-                  <div className="text-lg font-bold text-foreground">Цемент М500</div>
+                  <div className="text-lg font-bold text-foreground">Пенопласт
+</div>
                 </div>
                 <div className="text-right">
                   <div className="text-2xl font-bold text-primary">450₽</div>
