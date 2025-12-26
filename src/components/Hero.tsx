@@ -12,9 +12,7 @@ const Hero = () => {
               <span className="text-sm font-semibold">Скидки до 30% на весь ассортимент</span>
             </div>
             
-            <h1 className="text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
-              Качественные стройматериалы для вашего проекта
-            </h1>
+            <h1 className="text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">Качественные стройматериалы для ваших задач</h1>
             
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
               Широкий выбор товаров, профессиональные консультации и быстрая доставка. 
