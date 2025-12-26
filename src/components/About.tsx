@@ -51,7 +51,7 @@ const About = () => {
                 ))}
               </div>
               <div>
-                <div className="text-sm font-semibold text-foreground">Команда из 50+ специалистов</div>
+                <div className="text-sm font-semibold text-foreground">Команда из 20+ специалистов</div>
                 <div className="text-xs text-muted-foreground">готовы помочь вам 24/7</div>
               </div>
             </div>
