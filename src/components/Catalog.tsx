@@ -34,7 +34,7 @@ const Catalog = () => {
       id: 1,
       name: "Цемент М500",
       category: "Цемент и смеси",
-      price: 450,
+      price: 380,
       oldPrice: 590,
       rating: 4.8,
       reviews: 142,
