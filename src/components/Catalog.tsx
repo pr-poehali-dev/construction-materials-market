@@ -27,6 +27,8 @@ const Catalog = () => {
     "Инструмент",
     "Канализация",
     "Фильтрация",
+    "Кровля",
+    "Изоляция",
   ];
 
   const products = [
@@ -46,6 +48,7 @@ const Catalog = () => {
     {
       id: 2,
       name: "OSB 6 mm",
+      category: "Пиломатериалы",
       inStock: true,
       price: 860,
       rating: 4.7,
@@ -101,8 +104,8 @@ const Catalog = () => {
         "https://images.unsplash.com/photo-1565114887173-de0e2182f7e8?auto=format&fit=crop&w=400&q=80",
     },
     {
-       id: 7,
-      name: "Perfecta   Штукатурка декоративная "  2.5 mm " (25 кг)",
+      id: 7,
+      name: "Perfecta Штукатурка декоративная 2.5 mm (25 кг)",
       category: "Цемент и смеси",
       price: 1045,
       oldPrice: 1100,
@@ -111,8 +114,9 @@ const Catalog = () => {
       inStock: true,
       image:
         "https://images.unsplash.com/photo-1607400201889-565b1ee75f8e?auto=format&fit=crop&w=400&q=80",
-
-    }       
+      badge: "Новинка",
+    },
+  ];       
 
   const toggleCategory = (category: string) => {
     setSelectedCategories((prev) =>
