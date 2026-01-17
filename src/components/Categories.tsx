@@ -10,7 +10,7 @@ const Categories = () => {
       itemCount: 245,
       color: "bg-orange-500",
       image:
-        "https://images.unsplash.com/photo-1583207458417-6b5e149d8daf?auto=format&fit=crop&w=400&q=80",
+        "https://cdn.poehali.dev/projects/957da87a-22f2-4490-82de-9f00287df06f/files/d8a7680c-4a19-4576-8814-a5d3d1df6a08.jpg",
     },
     {
       id: 2,
@@ -19,7 +19,7 @@ const Categories = () => {
       itemCount: 189,
       color: "bg-blue-500",
       image:
-        "https://images.unsplash.com/photo-1607400201515-c2c41c07d307?auto=format&fit=crop&w=400&q=80",
+        "https://cdn.poehali.dev/projects/957da87a-22f2-4490-82de-9f00287df06f/files/794a9447-7f06-4c07-8b24-e2184f0deaaf.jpg",
     },
     {
       id: 3,
@@ -28,7 +28,7 @@ const Categories = () => {
       itemCount: 312,
       color: "bg-amber-600",
       image:
-        "https://images.unsplash.com/photo-1551127481-43279ba57b60?auto=format&fit=crop&w=400&q=80",
+        "https://cdn.poehali.dev/projects/957da87a-22f2-4490-82de-9f00287df06f/files/21b33654-e4c4-42ba-a841-52abf6dfe196.jpg",
     },
     {
       id: 4,
@@ -37,7 +37,7 @@ const Categories = () => {
       itemCount: 156,
       color: "bg-slate-600",
       image:
-        "https://images.unsplash.com/photo-1565114887173-de0e2182f7e8?auto=format&fit=crop&w=400&q=80",
+        "https://cdn.poehali.dev/projects/957da87a-22f2-4490-82de-9f00287df06f/files/9fa92227-5795-4f3c-98fe-ec6335c47e8e.jpg",
     },
     {
       id: 5,
@@ -46,7 +46,7 @@ const Categories = () => {
       itemCount: 278,
       color: "bg-red-600",
       image:
-        "https://images.unsplash.com/photo-1601648764658-cf37e8c89b70?auto=format&fit=crop&w=400&q=80",
+        "https://cdn.poehali.dev/projects/957da87a-22f2-4490-82de-9f00287df06f/files/9e673a8f-ca1e-4395-8a0a-6e5d509363ce.jpg",
     },
     {
       id: 6,
@@ -55,7 +55,7 @@ const Categories = () => {
       itemCount: 198,
       color: "bg-teal-500",
       image:
-        "https://images.unsplash.com/photo-1581094651181-35942459ef62?auto=format&fit=crop&w=400&q=80",
+        "https://cdn.poehali.dev/projects/957da87a-22f2-4490-82de-9f00287df06f/files/af960d2e-d08c-424b-ab1f-7a39fbde5a3d.jpg",
     },
     {
       id: 7,
@@ -64,7 +64,7 @@ const Categories = () => {
       itemCount: 534,
       color: "bg-yellow-500",
       image:
-        "https://images.unsplash.com/photo-1581094271901-8022df4466f9?auto=format&fit=crop&w=400&q=80",
+        "https://cdn.poehali.dev/projects/957da87a-22f2-4490-82de-9f00287df06f/files/ad09b6dd-9985-4693-a7d6-09b2b241eae0.jpg",
     },
     {
       id: 8,
@@ -73,7 +73,7 @@ const Categories = () => {
       itemCount: 421,
       color: "bg-purple-500",
       image:
-        "https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=400&q=80",
+        "https://cdn.poehali.dev/projects/957da87a-22f2-4490-82de-9f00287df06f/files/9b3417dc-ed3d-407f-815e-66a43c18cb9d.jpg",
     },
   ];
 

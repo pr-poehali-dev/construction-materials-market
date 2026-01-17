@@ -56,7 +56,7 @@ const Catalog = () => {
       rating: 4.7,
       reviews: 56,
       image:
-        "https://images.unsplash.com/photo-1583207458417-6b5e149d8daf?auto=format&fit=crop&w=400&q=80",
+        "https://cdn.poehali.dev/projects/957da87a-22f2-4490-82de-9f00287df06f/files/4b9885f2-9e5e-4be7-bf8c-5a531ae7c059.jpg",
     },
     {
       id: 3,
@@ -67,7 +67,7 @@ const Catalog = () => {
       reviews: 56,
       inStock: true,
       image:
-        "https://images.unsplash.com/photo-1551127481-43279ba57b60?auto=format&fit=crop&w=400&q=80",
+        "https://cdn.poehali.dev/projects/957da87a-22f2-4490-82de-9f00287df06f/files/4b9885f2-9e5e-4be7-bf8c-5a531ae7c059.jpg",
       badge: "Новинка",
     },
     {
@@ -80,7 +80,7 @@ const Catalog = () => {
       reviews: 73,
       inStock: true,
       image:
-        "https://images.unsplash.com/photo-1601648764658-cf37e8c89b70?auto=format&fit=crop&w=400&q=80",
+        "https://cdn.poehali.dev/projects/957da87a-22f2-4490-82de-9f00287df06f/files/7e3e3020-6f73-4337-9bb7-69486016408c.jpg",
     },
     {
       id: 5,
@@ -91,7 +91,7 @@ const Catalog = () => {
       reviews: 128,
       inStock: true,
       image:
-        "https://images.unsplash.com/photo-1581094651181-35942459ef62?auto=format&fit=crop&w=400&q=80",
+        "https://cdn.poehali.dev/projects/957da87a-22f2-4490-82de-9f00287df06f/files/2262adeb-4d09-48e9-b163-2d142855e6b1.jpg",
       badge: "Топ выбор",
     },
     {
@@ -103,7 +103,7 @@ const Catalog = () => {
       reviews: 94,
       inStock: false,
       image:
-        "https://images.unsplash.com/photo-1565114887173-de0e2182f7e8?auto=format&fit=crop&w=400&q=80",
+        "https://cdn.poehali.dev/projects/957da87a-22f2-4490-82de-9f00287df06f/files/9fe049a8-380c-4cad-a165-cbc018ff394a.jpg",
     },
     {
       id: 7,
@@ -115,7 +115,7 @@ const Catalog = () => {
       reviews: 142,
       inStock: true,
       image:
-        "https://images.unsplash.com/photo-1607400201889-565b1ee75f8e?auto=format&fit=crop&w=400&q=80",
+        "https://cdn.poehali.dev/projects/957da87a-22f2-4490-82de-9f00287df06f/files/75e9aa67-7bc4-4d87-b902-1bc0b37fefeb.jpg",
       badge: "Новинка",
     },
   ];       
