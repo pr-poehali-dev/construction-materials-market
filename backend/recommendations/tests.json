@@ -1,0 +1,25 @@
+{
+  "tests": [
+    {
+      "name": "Test recommendations endpoint",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "productName": "Кофе арабика",
+        "category": "Кофе",
+        "products": [
+          {"id": 1, "name": "Кофе арабика", "category": "Кофе", "price": 850},
+          {"id": 2, "name": "Кофе робуста", "category": "Кофе", "price": 750},
+          {"id": 3, "name": "Кофемолка", "category": "Техника", "price": 2500},
+          {"id": 4, "name": "Чай зеленый", "category": "Чай", "price": 350}
+        ]
+      },
+      "expectedStatus": 200,
+      "expectedBody": {
+        "recommendations": "array",
+        "method": "string"
+      },
+      "bodyMatcher": "partial"
+    }
+  ]
+}
