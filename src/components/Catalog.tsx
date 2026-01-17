@@ -102,7 +102,7 @@ const Catalog = () => {
     },
     {
        id: 7,
-      name: "Perfecta   Штукатурка декоративная " Короед  2.5 mm " (25 кг)",
+      name: "Perfecta   Штукатурка декоративная "  2.5 mm " (25 кг)",
       category: "Цемент и смеси",
       price: 1045,
       oldPrice: 1100,
