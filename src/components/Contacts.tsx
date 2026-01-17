@@ -1,41 +1,41 @@
-import { Card } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import Icon from '@/components/ui/icon';
+import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import Icon from "@/components/ui/icon";
 
 const Contacts = () => {
   const contactInfo = [
     {
-      icon: 'Phone',
-      title: 'Телефон',
-      value: '+7 (495) 123-45-67',
-      link: 'tel:+74951234567'
+      icon: "Phone",
+      title: "Телефон",
+      value: "+7 978 799 49 90",
+      link: "tel:+74951234567",
     },
     {
-      icon: 'Mail',
-      title: 'Email',
-      value: 'info@stroymarket.ru',
-      link: 'mailto:info@stroymarket.ru'
+      icon: "Mail",
+      title: "Email",
+      value: "info@stroymarket.ru",
+      link: "mailto:info@stroymarket.ru",
     },
     {
-      icon: 'MapPin',
-      title: 'Адрес',
-      value: 'г. Москва, ул. Стройная, д. 25',
-      link: '#'
+      icon: "MapPin",
+      title: "Адрес",
+      value: "г. Москва, ул. Стройная, д. 25",
+      link: "#",
     },
     {
-      icon: 'Clock',
-      title: 'Режим работы',
-      value: 'Пн-Пт: 8:00-20:00, Сб-Вс: 9:00-18:00',
-      link: '#'
+      icon: "Clock",
+      title: "Режим работы",
+      value: "Пн-Пт: 8:00-17:00, Сб: 8:00-13:00",
+      link: "#",
     },
   ];
 
   const socialLinks = [
-    { icon: 'MessageCircle', name: 'Telegram', color: 'bg-blue-500' },
-    { icon: 'Phone', name: 'WhatsApp', color: 'bg-green-500' },
-    { icon: 'Send', name: 'VK', color: 'bg-blue-600' },
+    { icon: "MessageCircle", name: "Telegram", color: "bg-blue-500" },
+    { icon: "Phone", name: "WhatsApp", color: "bg-green-500" },
+    { icon: "Send", name: "VK", color: "bg-blue-600" },
   ];
 
   return (
@@ -50,8 +50,10 @@ const Contacts = () => {
 
         <div className="grid lg:grid-cols-2 gap-12">
           <div>
-            <h3 className="text-2xl font-bold text-foreground mb-6">Наши контакты</h3>
-            
+            <h3 className="text-2xl font-bold text-foreground mb-6">
+              Наши контакты
+            </h3>
+
             <div className="grid sm:grid-cols-2 gap-4 mb-8">
               {contactInfo.map((item, index) => (
                 <Card
@@ -64,7 +66,9 @@ const Contacts = () => {
                       <Icon name={item.icon as any} size={20} />
                     </div>
                     <div>
-                      <div className="text-sm text-muted-foreground mb-1">{item.title}</div>
+                      <div className="text-sm text-muted-foreground mb-1">
+                        {item.title}
+                      </div>
                       <a
                         href={item.link}
                         className="text-sm font-semibold text-foreground hover:text-primary transition-colors"
@@ -78,7 +82,9 @@ const Contacts = () => {
             </div>
 
             <div className="mb-8">
-              <h4 className="text-lg font-bold text-foreground mb-4">Мы в соцсетях</h4>
+              <h4 className="text-lg font-bold text-foreground mb-4">
+                Мы в соцсетях
+              </h4>
               <div className="flex gap-3">
                 {socialLinks.map((social, index) => (
                   <button
@@ -106,7 +112,9 @@ const Contacts = () => {
 
           <div>
             <Card className="p-8">
-              <h3 className="text-2xl font-bold text-foreground mb-2">Напишите нам</h3>
+              <h3 className="text-2xl font-bold text-foreground mb-2">
+                Напишите нам
+              </h3>
               <p className="text-muted-foreground mb-6">
                 Задайте вопрос или оставьте заявку — мы ответим в течение часа
               </p>

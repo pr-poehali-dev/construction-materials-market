@@ -20,7 +20,7 @@ const Catalog = () => {
   const [searchQuery, setSearchQuery] = useState("");
 
   const categories = [
-    "Кирпич и блоки",
+    "Газобетон",
     "Цемент и смеси",
     "Пиломатериалы",
     "Электроинструмент",
@@ -100,7 +100,19 @@ const Catalog = () => {
       image:
         "https://images.unsplash.com/photo-1565114887173-de0e2182f7e8?auto=format&fit=crop&w=400&q=80",
     },
-  ];
+    {
+       id: 1,
+      name: "Perfecta   Штукатурка декоративная " Короед  2.5 mm " (25 кг)",
+      category: "Цемент и смеси",
+      price: 1045,
+      oldPrice: 1100,
+      rating: 4.8,
+      reviews: 142,
+      inStock: true,
+      image:
+        "https://images.unsplash.com/photo-1607400201889-565b1ee75f8e?auto=format&fit=crop&w=400&q=80",
+
+    }       
 
   const toggleCategory = (category: string) => {
     setSelectedCategories((prev) =>
