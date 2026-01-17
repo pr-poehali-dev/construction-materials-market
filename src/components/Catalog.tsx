@@ -47,6 +47,9 @@ const Catalog = () => {
       id: 2,
       name: "OSB 6 mm",
       inStock: true,
+      price: 860,
+      rating: 4.7,
+      reviews: 56,
       image:
         "https://images.unsplash.com/photo-1583207458417-6b5e149d8daf?auto=format&fit=crop&w=400&q=80",
     },
@@ -54,7 +57,7 @@ const Catalog = () => {
       id: 3,
       name: "OSB 6 mm",
       category: "Пиломатериалы",
-      price: 860,
+      price: 950,
       rating: 4.7,
       reviews: 56,
       inStock: true,
