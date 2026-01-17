@@ -45,7 +45,7 @@ const Catalog = () => {
     },
     {
       id: 2,
-      name: "OSB 6 mm"
+      name: "OSB 6 mm",
       inStock: true,
       image:
         "https://images.unsplash.com/photo-1583207458417-6b5e149d8daf?auto=format&fit=crop&w=400&q=80",
