@@ -5,7 +5,7 @@ const Categories = () => {
   const categories = [
     {
       id: 1,
-      name: "Кирпич и блоки",
+      name: "Гидроизоляция",
       icon: "Square",
       itemCount: 245,
       color: "bg-orange-500",
