@@ -1,0 +1,39 @@
+{
+  "tests": [
+    {
+      "name": "Test OPTIONS request for CORS",
+      "method": "OPTIONS",
+      "path": "/",
+      "expectedStatus": 200,
+      "expectedBody": "",
+      "bodyMatcher": "exact"
+    },
+    {
+      "name": "Test order submission",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "customer": {
+          "name": "Тестовый клиент",
+          "phone": "+7 999 123-45-67",
+          "address": "г. Москва, ул. Тестовая, д. 1",
+          "comment": "Тестовый заказ"
+        },
+        "items": [
+          {
+            "id": 1,
+            "name": "Цемент М500",
+            "price": 450,
+            "quantity": 2
+          }
+        ],
+        "total": 900
+      },
+      "expectedStatus": 200,
+      "expectedBody": {
+        "success": true
+      },
+      "bodyMatcher": "partial"
+    }
+  ]
+}

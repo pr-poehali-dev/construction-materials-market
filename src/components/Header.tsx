@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import Cart from './Cart';
 
 const Header = () => {
   const [activeSection, setActiveSection] = useState('home');
@@ -54,12 +55,7 @@ const Header = () => {
             <Button variant="ghost" size="icon">
               <Icon name="Search" size={20} />
             </Button>
-            <Button variant="ghost" size="icon" className="relative">
-              <Icon name="ShoppingCart" size={20} />
-              <span className="absolute -top-1 -right-1 bg-primary text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
-                3
-              </span>
-            </Button>
+            <Cart />
             <Button variant="default">
               <Icon name="User" size={16} className="mr-2" />
               Войти

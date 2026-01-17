@@ -13,8 +13,10 @@ import {
 } from "@/components/ui/select";
 import Icon from "@/components/ui/icon";
 import { Badge } from "@/components/ui/badge";
+import { useCart } from "@/contexts/CartContext";
 
 const Catalog = () => {
+  const { addToCart } = useCart();
   const [priceRange, setPriceRange] = useState([0, 50000]);
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
@@ -332,9 +334,18 @@ const Catalog = () => {
                       )}
                     </div>
 
-                    <Button className="w-full" disabled={!product.inStock}>
-                      <Icon name="ShoppingCart" size={18} className="mr-2" />В
-                      корзину
+                    <Button 
+                      className="w-full" 
+                      disabled={!product.inStock}
+                      onClick={() => addToCart({
+                        id: product.id,
+                        name: product.name,
+                        price: product.price,
+                        image: product.image,
+                      })}
+                    >
+                      <Icon name="ShoppingCart" size={18} className="mr-2" />
+                      В корзину
                     </Button>
                   </div>
                 </Card>
