@@ -45,20 +45,16 @@ const Catalog = () => {
     },
     {
       id: 2,
-      name: "Кирпич керамический М150",
-      category: "Кирпич и блоки",
-      price: 12,
-      rating: 4.9,
-      reviews: 89,
+      name: "OSB 6 mm"
       inStock: true,
       image:
         "https://images.unsplash.com/photo-1583207458417-6b5e149d8daf?auto=format&fit=crop&w=400&q=80",
     },
     {
       id: 3,
-      name: "Доска обрезная 50х150х6000",
+      name: "OSB 6 mm",
       category: "Пиломатериалы",
-      price: 780,
+      price: 860,
       rating: 4.7,
       reviews: 56,
       inStock: true,
