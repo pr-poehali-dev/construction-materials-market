@@ -5,12 +5,14 @@ import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import Icon from "@/components/ui/icon";
 import { useCart } from "@/contexts/CartContext";
+import { useViewHistory } from "@/contexts/ViewHistoryContext";
 import { useState, useEffect } from "react";
 
 const ProductPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const { addToCart } = useCart();
+  const { viewHistory, addToHistory } = useViewHistory();
   const [quantity, setQuantity] = useState(1);
   const [recommendations, setRecommendations] = useState<Product[]>([]);
   const [loadingRecommendations, setLoadingRecommendations] = useState(true);
@@ -30,6 +32,8 @@ const ProductPage = () => {
 
   useEffect(() => {
     if (!product) return;
+
+    addToHistory(product);
 
     const fetchRecommendations = async () => {
       setLoadingRecommendations(true);
@@ -53,7 +57,6 @@ const ProductPage = () => {
         setRecommendations(data.recommendations || []);
       } catch (error) {
         console.error("Error fetching recommendations:", error);
-        // Fallback: показываем товары из той же категории
         const similar = products.filter(
           (p) => p.category === product.category && p.id !== product.id
         );
@@ -64,7 +67,7 @@ const ProductPage = () => {
     };
 
     fetchRecommendations();
-  }, [product]);
+  }, [product, addToHistory]);
 
   const handleAddToCart = () => {
     for (let i = 0; i < quantity; i++) {
@@ -316,6 +319,91 @@ const ProductPage = () => {
                 ))}
               </div>
             )}
+          </div>
+        )}
+
+        {/* История просмотров */}
+        {viewHistory.length > 1 && (
+          <div className="mt-12">
+            <div className="flex items-center gap-3 mb-6">
+              <Icon name="History" size={28} className="text-orange-500" />
+              <h2 className="text-2xl font-bold">Вы недавно смотрели</h2>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {viewHistory
+                .filter((item) => item.id !== product.id)
+                .slice(0, 4)
+                .map((item) => (
+                  <Card
+                    key={item.id}
+                    className="group overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer"
+                    onClick={() => navigate(`/product/${item.id}`)}
+                  >
+                    <div className="relative h-48 overflow-hidden">
+                      <img
+                        src={item.image}
+                        alt={item.name}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                      {item.badge && (
+                        <Badge className="absolute top-3 right-3 bg-orange-500 text-white">
+                          {item.badge}
+                        </Badge>
+                      )}
+                    </div>
+                    <div className="p-4">
+                      <div className="text-xs text-muted-foreground mb-1">
+                        {item.category}
+                      </div>
+                      <h3 className="font-bold mb-2 group-hover:text-primary transition-colors line-clamp-2">
+                        {item.name}
+                      </h3>
+                      <div className="flex items-center gap-2 mb-3">
+                        <div className="flex">
+                          {[...Array(5)].map((_, i) => (
+                            <Icon
+                              key={i}
+                              name="Star"
+                              size={14}
+                              className={
+                                i < Math.floor(item.rating)
+                                  ? "fill-yellow-400 text-yellow-400"
+                                  : "text-gray-300"
+                              }
+                            />
+                          ))}
+                        </div>
+                        <span className="text-xs text-gray-600">
+                          {item.rating}
+                        </span>
+                      </div>
+                      <div className="flex items-baseline gap-2 mb-3">
+                        <span className="text-xl font-bold text-orange-500">
+                          {item.price} ₽
+                        </span>
+                        {item.oldPrice && (
+                          <span className="text-sm text-gray-400 line-through">
+                            {item.oldPrice} ₽
+                          </span>
+                        )}
+                      </div>
+                      <Button
+                        className="w-full"
+                        size="sm"
+                        disabled={!item.inStock}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          addToCart(item);
+                        }}
+                      >
+                        <Icon name="ShoppingCart" size={16} className="mr-2" />
+                        В корзину
+                      </Button>
+                    </div>
+                  </Card>
+                ))}
+            </div>
           </div>
         )}
       </div>
