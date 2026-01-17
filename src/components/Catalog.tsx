@@ -101,7 +101,7 @@ const Catalog = () => {
         "https://images.unsplash.com/photo-1565114887173-de0e2182f7e8?auto=format&fit=crop&w=400&q=80",
     },
     {
-       id: 1,
+       id: 7,
       name: "Perfecta   Штукатурка декоративная " Короед  2.5 mm " (25 кг)",
       category: "Цемент и смеси",
       price: 1045,
