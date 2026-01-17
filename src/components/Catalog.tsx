@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -14,9 +15,11 @@ import {
 import Icon from "@/components/ui/icon";
 import { Badge } from "@/components/ui/badge";
 import { useCart } from "@/contexts/CartContext";
+import { products } from "@/data/products";
 
 const Catalog = () => {
   const { addToCart } = useCart();
+  const navigate = useNavigate();
   const [priceRange, setPriceRange] = useState([0, 50000]);
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
@@ -33,92 +36,7 @@ const Catalog = () => {
     "Изоляция",
   ];
 
-  const products = [
-    {
-      id: 1,
-      name: "Цемент М500",
-      category: "Цемент и смеси",
-      price: 380,
-      oldPrice: 590,
-      rating: 4.8,
-      reviews: 142,
-      inStock: true,
-      image:
-        "https://images.unsplash.com/photo-1607400201889-565b1ee75f8e?auto=format&fit=crop&w=400&q=80",
-      badge: "Хит продаж",
-    },
-    {
-      id: 2,
-      name: "OSB 6 mm",
-      category: "Пиломатериалы",
-      inStock: true,
-      price: 860,
-      rating: 4.7,
-      reviews: 56,
-      image:
-        "https://cdn.poehali.dev/projects/957da87a-22f2-4490-82de-9f00287df06f/files/4b9885f2-9e5e-4be7-bf8c-5a531ae7c059.jpg",
-    },
-    {
-      id: 3,
-      name: "OSB 6 mm",
-      category: "Пиломатериалы",
-      price: 950,
-      rating: 4.7,
-      reviews: 56,
-      inStock: true,
-      image:
-        "https://cdn.poehali.dev/projects/957da87a-22f2-4490-82de-9f00287df06f/files/4b9885f2-9e5e-4be7-bf8c-5a531ae7c059.jpg",
-      badge: "Новинка",
-    },
-    {
-      id: 4,
-      name: "Профлист С-21",
-      category: "Кровля",
-      price: 520,
-      oldPrice: 650,
-      rating: 4.6,
-      reviews: 73,
-      inStock: true,
-      image:
-        "https://cdn.poehali.dev/projects/957da87a-22f2-4490-82de-9f00287df06f/files/7e3e3020-6f73-4337-9bb7-69486016408c.jpg",
-    },
-    {
-      id: 5,
-      name: "Минеральная вата Rockwool",
-      category: "Изоляция",
-      price: 890,
-      rating: 4.9,
-      reviews: 128,
-      inStock: true,
-      image:
-        "https://cdn.poehali.dev/projects/957da87a-22f2-4490-82de-9f00287df06f/files/2262adeb-4d09-48e9-b163-2d142855e6b1.jpg",
-      badge: "Топ выбор",
-    },
-    {
-      id: 6,
-      name: "Армат УТЕПЛЯЙка -  MULTI - армир. клей для пенопл. и мин. ваты ( 25 кг )",
-      category: "Цемент и смеси",
-      price: 45,
-      rating: 4.8,
-      reviews: 94,
-      inStock: false,
-      image:
-        "https://cdn.poehali.dev/projects/957da87a-22f2-4490-82de-9f00287df06f/files/9fe049a8-380c-4cad-a165-cbc018ff394a.jpg",
-    },
-    {
-      id: 7,
-      name: "Perfecta Штукатурка декоративная 2.5 mm (25 кг)",
-      category: "Цемент и смеси",
-      price: 1045,
-      oldPrice: 1100,
-      rating: 4.8,
-      reviews: 142,
-      inStock: true,
-      image:
-        "https://cdn.poehali.dev/projects/957da87a-22f2-4490-82de-9f00287df06f/files/75e9aa67-7bc4-4d87-b902-1bc0b37fefeb.jpg",
-      badge: "Новинка",
-    },
-  ];       
+       
 
   const toggleCategory = (category: string) => {
     setSelectedCategories((prev) =>
@@ -258,10 +176,13 @@ const Catalog = () => {
               {filteredProducts.map((product, index) => (
                 <Card
                   key={product.id}
-                  className="group cursor-pointer overflow-hidden hover:shadow-xl transition-all duration-300 animate-fade-in"
+                  className="group overflow-hidden hover:shadow-xl transition-all duration-300 animate-fade-in"
                   style={{ animationDelay: `${index * 50}ms` }}
                 >
-                  <div className="relative h-64 overflow-hidden">
+                  <div 
+                    className="relative h-64 overflow-hidden cursor-pointer"
+                    onClick={() => navigate(`/product/${product.id}`)}
+                  >
                     <img
                       src={product.image}
                       alt={product.name}
@@ -292,7 +213,10 @@ const Catalog = () => {
                     <div className="text-xs text-muted-foreground mb-2">
                       {product.category}
                     </div>
-                    <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+                    <h3 
+                      className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors cursor-pointer"
+                      onClick={() => navigate(`/product/${product.id}`)}
+                    >
                       {product.name}
                     </h3>
 
