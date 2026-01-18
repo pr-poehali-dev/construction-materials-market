@@ -23,7 +23,7 @@ const ProductPage = () => {
     return (
       <div className="container mx-auto px-4 py-20 text-center">
         <h1 className="text-2xl font-bold mb-4">Товар не найден</h1>
-        <Button onClick={() => navigate("/catalog")}>
+        <Button onClick={() => navigate("/#catalog")}>
           Вернуться в каталог
         </Button>
       </div>
@@ -81,7 +81,7 @@ const ProductPage = () => {
         <Button
           variant="ghost"
           className="mb-6"
-          onClick={() => navigate("/catalog")}
+          onClick={() => navigate("/#catalog")}
         >
           <Icon name="ArrowLeft" size={20} className="mr-2" />
           Назад в каталог
