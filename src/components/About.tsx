@@ -1,27 +1,27 @@
-import { Card } from '@/components/ui/card';
-import Icon from '@/components/ui/icon';
+import { Card } from "@/components/ui/card";
+import Icon from "@/components/ui/icon";
 
 const About = () => {
   const advantages = [
     {
-      icon: 'Shield',
-      title: 'Гарантия качества',
-      description: 'Все товары сертифицированы и соответствуют ГОСТам'
+      icon: "Shield",
+      title: "Гарантия качества",
+      description: "Все товары сертифицированы и соответствуют ГОСТам",
     },
     {
-      icon: 'Truck',
-      title: 'Быстрая доставка',
-      description: 'Доставим материалы в день заказа по городу'
+      icon: "Truck",
+      title: "Быстрая доставка",
+      description: "Доставим материалы в день заказа по городу",
     },
     {
-      icon: 'Headphones',
-      title: 'Консультации',
-      description: 'Профессиональная помощь в подборе материалов'
+      icon: "Headphones",
+      title: "Консультации",
+      description: "Профессиональная помощь в подборе материалов",
     },
     {
-      icon: 'Percent',
-      title: 'Выгодные цены',
-      description: 'Работаем напрямую с производителями'
+      icon: "Percent",
+      title: "Выгодные цены",
+      description: "Работаем напрямую с производителями",
     },
   ];
 
@@ -30,20 +30,23 @@ const About = () => {
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
           <div>
-            <h2 className="text-4xl font-bold text-foreground mb-6">О компании СтройМаркет</h2>
+            <h2 className="text-4xl font-bold text-foreground mb-6">
+              О компании Пенопласт
+            </h2>
             <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-              Мы работаем на рынке строительных материалов уже более 15 лет. За это время мы 
-              построили крепкие отношения с ведущими производителями и заслужили доверие 
-              тысяч клиентов.
+              Мы работаем на рынке строительных материалов уже более 15 лет. За
+              это время мы построили крепкие отношения с ведущими
+              производителями и заслужили доверие тысяч клиентов.
             </p>
             <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-              Наша миссия — обеспечить каждого строителя качественными материалами по 
-              справедливым ценам. Мы постоянно расширяем ассортимент и улучшаем сервис, 
-              чтобы вам было удобно работать с нами.
+              Наша миссия — обеспечить каждого строителя качественными
+              материалами по справедливым ценам. Мы постоянно расширяем
+              ассортимент и улучшаем сервис, чтобы вам было удобно работать с
+              нами.
             </p>
             <div className="flex items-center gap-4">
               <div className="flex -space-x-2">
-                {[1, 2, 3, 4].map(i => (
+                {[1, 2, 3, 4].map((i) => (
                   <div
                     key={i}
                     className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-secondary border-2 border-white"
@@ -51,8 +54,12 @@ const About = () => {
                 ))}
               </div>
               <div>
-                <div className="text-sm font-semibold text-foreground">Команда из 15+ специалистов</div>
-                <div className="text-xs text-muted-foreground">готовы помочь вам 24/7</div>
+                <div className="text-sm font-semibold text-foreground">
+                  Команда из 15+ специалистов
+                </div>
+                <div className="text-xs text-muted-foreground">
+                  готовы помочь вам 24/7
+                </div>
               </div>
             </div>
           </div>
@@ -76,7 +83,9 @@ const About = () => {
               <div className="bg-primary/10 text-primary w-14 h-14 rounded-xl flex items-center justify-center mb-4">
                 <Icon name={item.icon as any} size={28} />
               </div>
-              <h3 className="text-lg font-bold text-foreground mb-2">{item.title}</h3>
+              <h3 className="text-lg font-bold text-foreground mb-2">
+                {item.title}
+              </h3>
               <p className="text-muted-foreground">{item.description}</p>
             </Card>
           ))}
