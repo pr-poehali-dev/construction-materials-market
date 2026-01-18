@@ -4,7 +4,6 @@ import Categories from '@/components/Categories';
 import Catalog from '@/components/Catalog';
 import About from '@/components/About';
 import Delivery from '@/components/Delivery';
-import Blog from '@/components/Blog';
 import Contacts from '@/components/Contacts';
 import Footer from '@/components/Footer';
 
@@ -18,7 +17,6 @@ const Index = () => {
         <Catalog />
         <About />
         <Delivery />
-        <Blog />
         <Contacts />
       </main>
       <Footer />
