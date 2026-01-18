@@ -1,8 +1,6 @@
 import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import Icon from "@/components/ui/icon";
+import ContactForm from "@/components/ContactForm";
 
 const Contacts = () => {
   const contactInfo = [
@@ -111,57 +109,7 @@ const Contacts = () => {
           </div>
 
           <div>
-            <Card className="p-8">
-              <h3 className="text-2xl font-bold text-foreground mb-2">
-                Напишите нам
-              </h3>
-              <p className="text-muted-foreground mb-6">
-                Задайте вопрос или оставьте заявку — мы ответим в течение часа
-              </p>
-
-              <form className="space-y-4">
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="text-sm font-medium text-foreground mb-2 block">
-                      Ваше имя
-                    </label>
-                    <Input placeholder="Иван Иванов" />
-                  </div>
-                  <div>
-                    <label className="text-sm font-medium text-foreground mb-2 block">
-                      Телефон
-                    </label>
-                    <Input placeholder="+7 (___) ___-__-__" />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="text-sm font-medium text-foreground mb-2 block">
-                    Email
-                  </label>
-                  <Input type="email" placeholder="your@email.com" />
-                </div>
-
-                <div>
-                  <label className="text-sm font-medium text-foreground mb-2 block">
-                    Сообщение
-                  </label>
-                  <Textarea
-                    placeholder="Расскажите, чем мы можем помочь..."
-                    rows={5}
-                  />
-                </div>
-
-                <Button className="w-full" size="lg">
-                  <Icon name="Send" size={18} className="mr-2" />
-                  Отправить сообщение
-                </Button>
-
-                <p className="text-xs text-muted-foreground text-center">
-                  Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности
-                </p>
-              </form>
-            </Card>
+            <ContactForm />
           </div>
         </div>
       </div>
