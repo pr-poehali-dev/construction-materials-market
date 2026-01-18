@@ -1,6 +1,5 @@
 import Icon from '@/components/ui/icon';
 import { Separator } from '@/components/ui/separator';
-import ContactForm from '@/components/ContactForm';
 
 const Footer = () => {
   const footerLinks = {
@@ -33,11 +32,6 @@ const Footer = () => {
   return (
     <footer className="bg-foreground text-background">
       <div className="container mx-auto px-4 py-12">
-        {/* Форма обратной связи */}
-        <div className="mb-12">
-          <ContactForm />
-        </div>
-
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8 mb-8">
           <div className="lg:col-span-1">
             <div className="flex items-center gap-2 mb-4">
