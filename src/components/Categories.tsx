@@ -5,7 +5,7 @@ const Categories = () => {
   const categories = [
     {
       id: 1,
-      name: "Гидроизоляция",
+      name: "Изоляция",
       icon: "Square",
       itemCount: 245,
       color: "bg-orange-500",
@@ -41,7 +41,7 @@ const Categories = () => {
     },
     {
       id: 5,
-      name: "Инструменты",
+      name: "Инструмент",
       icon: "Home",
       itemCount: 278,
       color: "bg-red-600",
@@ -59,7 +59,7 @@ const Categories = () => {
     },
     {
       id: 7,
-      name: "Инструменты",
+      name: "Электроинструмент",
       icon: "Wrench",
       itemCount: 534,
       color: "bg-yellow-500",
@@ -68,7 +68,7 @@ const Categories = () => {
     },
     {
       id: 8,
-      name: "Лакокрасочные материалы",
+      name: "Кровля",
       icon: "Paintbrush",
       itemCount: 421,
       color: "bg-purple-500",
@@ -76,6 +76,19 @@ const Categories = () => {
         "https://cdn.poehali.dev/projects/957da87a-22f2-4490-82de-9f00287df06f/files/9b3417dc-ed3d-407f-815e-66a43c18cb9d.jpg",
     },
   ];
+
+  const handleCategoryClick = (categoryName: string) => {
+    const catalogSection = document.getElementById('catalog');
+    if (catalogSection) {
+      catalogSection.scrollIntoView({ behavior: 'smooth' });
+      setTimeout(() => {
+        const checkbox = document.getElementById(categoryName) as HTMLInputElement;
+        if (checkbox && !checkbox.checked) {
+          checkbox.click();
+        }
+      }, 500);
+    }
+  };
 
   return (
     <section className="py-16 bg-muted/30">
@@ -96,6 +109,7 @@ const Categories = () => {
               key={category.id}
               className="group cursor-pointer overflow-hidden border-2 border-transparent hover:border-primary transition-all duration-300 hover:shadow-xl hover-scale"
               style={{ animationDelay: `${index * 50}ms` }}
+              onClick={() => handleCategoryClick(category.name)}
             >
               <div className="relative h-48 overflow-hidden">
                 <img
