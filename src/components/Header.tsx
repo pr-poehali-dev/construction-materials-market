@@ -12,7 +12,6 @@ const Header = () => {
     { id: 'catalog', label: 'Каталог', icon: 'ShoppingBag' },
     { id: 'about', label: 'О компании', icon: 'Info' },
     { id: 'delivery', label: 'Доставка', icon: 'Truck' },
-    { id: 'blog', label: 'Блог', icon: 'FileText' },
     { id: 'contacts', label: 'Контакты', icon: 'Phone' },
   ];
 
