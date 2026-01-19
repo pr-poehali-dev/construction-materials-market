@@ -272,6 +272,7 @@ const Catalog = () => {
                         name: product.name,
                         price: product.price,
                         image: product.image,
+                        stock: product.warehouseStock,
                       })}
                     >
                       <Icon name="ShoppingCart" size={18} className="mr-2" />

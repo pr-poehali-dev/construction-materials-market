@@ -7,6 +7,7 @@ export interface CartItem {
   price: number;
   quantity: number;
   image: string;
+  stock?: number;
 }
 
 interface CartContextType {
@@ -29,13 +30,22 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     setItems((prev) => {
       const existing = prev.find((item) => item.id === product.id);
       if (existing) {
+        const newQuantity = existing.quantity + 1;
+        if (product.stock && newQuantity > product.stock) {
+          toast({
+            title: "Недостаточно товара",
+            description: `В наличии только ${product.stock} шт.`,
+            variant: "destructive",
+          });
+          return prev;
+        }
         toast({
           title: "Количество обновлено",
-          description: `${product.name} - теперь ${existing.quantity + 1} шт.`,
+          description: `${product.name} - теперь ${newQuantity} шт.`,
         });
         return prev.map((item) =>
           item.id === product.id
-            ? { ...item, quantity: item.quantity + 1 }
+            ? { ...item, quantity: newQuantity }
             : item
         );
       }
@@ -61,9 +71,20 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
       return;
     }
     setItems((prev) =>
-      prev.map((item) =>
-        item.id === id ? { ...item, quantity } : item
-      )
+      prev.map((item) => {
+        if (item.id === id) {
+          if (item.stock && quantity > item.stock) {
+            toast({
+              title: "Превышен лимит",
+              description: `В наличии только ${item.stock} шт.`,
+              variant: "destructive",
+            });
+            return { ...item, quantity: item.stock };
+          }
+          return { ...item, quantity };
+        }
+        return item;
+      })
     );
   };
 

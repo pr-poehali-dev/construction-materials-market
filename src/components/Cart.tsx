@@ -40,8 +40,20 @@ const Cart = () => {
   const finalDeliveryCost = isFreeDelivery ? 0 : deliveryCost;
   const finalTotal = totalPrice + finalDeliveryCost;
 
+  const hasStockIssues = items.some(item => item.stock && item.quantity > item.stock);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    if (hasStockIssues) {
+      toast({
+        title: "Невозможно оформить заказ",
+        description: "Проверьте количество товаров в корзине - превышено наличие на складе",
+        variant: "destructive",
+      });
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
@@ -52,6 +64,8 @@ const Cart = () => {
           customer: formData,
           items: items,
           total: totalPrice,
+          deliveryCost: finalDeliveryCost,
+          finalTotal: finalTotal,
         }),
       });
 
@@ -112,7 +126,12 @@ const Cart = () => {
                     className="w-20 h-20 object-cover rounded"
                   />
                   <div className="flex-1">
-                    <h4 className="font-semibold text-sm mb-2">{item.name}</h4>
+                    <h4 className="font-semibold text-sm mb-1">{item.name}</h4>
+                    {item.stock && (
+                      <p className="text-xs text-muted-foreground mb-2">
+                        В наличии: {item.stock} шт.
+                      </p>
+                    )}
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
                         <Button
@@ -126,6 +145,7 @@ const Cart = () => {
                         <Input
                           type="number"
                           min="1"
+                          max={item.stock}
                           value={item.quantity}
                           onChange={(e) => updateQuantity(item.id, parseInt(e.target.value) || 1)}
                           className="w-16 h-7 text-center"
@@ -135,6 +155,7 @@ const Cart = () => {
                           size="icon"
                           className="h-7 w-7"
                           onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                          disabled={item.stock ? item.quantity >= item.stock : false}
                         >
                           <Icon name="Plus" size={14} />
                         </Button>
@@ -368,7 +389,18 @@ const Cart = () => {
                 />
               </div>
 
-              <Button type="submit" className="w-full" size="lg" disabled={isSubmitting}>
+              {hasStockIssues && (
+                <div className="bg-red-50 border border-red-200 rounded-lg p-3">
+                  <div className="flex items-start gap-2">
+                    <Icon name="AlertCircle" size={16} className="text-red-600 mt-0.5" />
+                    <p className="text-xs text-red-800">
+                      Некоторые товары превышают доступное количество на складе. Уменьшите количество для оформления заказа.
+                    </p>
+                  </div>
+                </div>
+              )}
+
+              <Button type="submit" className="w-full" size="lg" disabled={isSubmitting || hasStockIssues}>
                 {isSubmitting ? (
                   <>
                     <Icon name="Loader2" size={20} className="mr-2 animate-spin" />
