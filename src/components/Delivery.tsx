@@ -7,7 +7,7 @@ const Delivery = () => {
     {
       title: "Экспресс-доставка",
       time: "В день заказа",
-      price: "от 800₽",
+      price: "от 2000₽",
       icon: "Zap",
       features: [
         "До 17:00 в любую точку города",
@@ -18,7 +18,7 @@ const Delivery = () => {
     {
       title: "Стандартная доставка",
       time: "1-2 дня",
-      price: "от 500₽",
+      price: "от 1000₽",
       icon: "Truck",
       features: ["Удобное время доставки"],
     },
