@@ -7,14 +7,14 @@ const Contacts = () => {
     {
       icon: "Phone",
       title: "Телефон",
-      value: "+7 978 799 49 90",
-      link: "tel:+74951234567",
+      value: "+7 (978) 799-49-90",
+      link: "tel:+79787994990",
     },
     {
-      icon: "Mail",
-      title: "Email",
-      value: "info@stroymarket.ru",
-      link: "mailto:info@stroymarket.ru",
+      icon: "Phone",
+      title: "Телефон",
+      value: "+7 (978) 706-69-45",
+      link: "tel:+79787066945",
     },
     {
       icon: "MapPin",
@@ -31,9 +31,18 @@ const Contacts = () => {
   ];
 
   const socialLinks = [
-    { icon: "MessageCircle", name: "Telegram", color: "bg-blue-500" },
-    { icon: "Phone", name: "WhatsApp", color: "bg-green-500" },
-    { icon: "Send", name: "VK", color: "bg-blue-600" },
+    { 
+      icon: "Send", 
+      name: "Telegram", 
+      color: "bg-blue-500",
+      link: "https://t.me/+79787994990"
+    },
+    { 
+      icon: "Phone", 
+      name: "WhatsApp", 
+      color: "bg-green-500",
+      link: "https://wa.me/79787994990"
+    },
   ];
 
   return (
@@ -85,12 +94,15 @@ const Contacts = () => {
               </h4>
               <div className="flex gap-3">
                 {socialLinks.map((social, index) => (
-                  <button
+                  <a
                     key={index}
+                    href={social.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className={`${social.color} text-white w-12 h-12 rounded-xl flex items-center justify-center hover:scale-110 transition-transform`}
                   >
                     <Icon name={social.icon as any} size={20} />
-                  </button>
+                  </a>
                 ))}
               </div>
             </div>
