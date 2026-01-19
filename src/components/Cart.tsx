@@ -13,6 +13,8 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import Icon from '@/components/ui/icon';
 import { useToast } from '@/hooks/use-toast';
 
@@ -26,6 +28,9 @@ const Cart = () => {
     phone: '',
     address: '',
     comment: '',
+    deliveryType: 'standard',
+    deliveryDate: '',
+    deliveryTime: '',
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -51,7 +56,7 @@ const Cart = () => {
       });
 
       clearCart();
-      setFormData({ name: '', phone: '', address: '', comment: '' });
+      setFormData({ name: '', phone: '', address: '', comment: '', deliveryType: 'standard', deliveryDate: '', deliveryTime: '' });
       setIsOpen(false);
     } catch (error) {
       toast({
@@ -172,15 +177,105 @@ const Cart = () => {
               </div>
 
               <div>
-                <Label htmlFor="address">Адрес доставки *</Label>
-                <Input
-                  id="address"
-                  required
-                  value={formData.address}
-                  onChange={(e) => setFormData({ ...formData, address: e.target.value })}
-                  placeholder="г. Москва, ул. Примерная, д. 1"
-                />
+                <Label>Способ получения *</Label>
+                <RadioGroup
+                  value={formData.deliveryType}
+                  onValueChange={(value) => setFormData({ ...formData, deliveryType: value })}
+                  className="space-y-3 mt-2"
+                >
+                  <div className="flex items-center space-x-2 border rounded-lg p-3 hover:bg-muted/50 cursor-pointer">
+                    <RadioGroupItem value="standard" id="standard" />
+                    <Label htmlFor="standard" className="flex items-center gap-2 cursor-pointer flex-1">
+                      <Icon name="Truck" size={18} />
+                      <div>
+                        <div className="font-semibold">Стандартная доставка</div>
+                        <div className="text-xs text-muted-foreground">3-5 рабочих дней</div>
+                      </div>
+                    </Label>
+                  </div>
+                  <div className="flex items-center space-x-2 border rounded-lg p-3 hover:bg-muted/50 cursor-pointer">
+                    <RadioGroupItem value="express" id="express" />
+                    <Label htmlFor="express" className="flex items-center gap-2 cursor-pointer flex-1">
+                      <Icon name="Zap" size={18} />
+                      <div>
+                        <div className="font-semibold">Экспресс-доставка</div>
+                        <div className="text-xs text-muted-foreground">1-2 рабочих дня</div>
+                      </div>
+                    </Label>
+                  </div>
+                  <div className="flex items-center space-x-2 border rounded-lg p-3 hover:bg-muted/50 cursor-pointer">
+                    <RadioGroupItem value="pickup" id="pickup" />
+                    <Label htmlFor="pickup" className="flex items-center gap-2 cursor-pointer flex-1">
+                      <Icon name="MapPin" size={18} />
+                      <div>
+                        <div className="font-semibold">Самовывоз</div>
+                        <div className="text-xs text-muted-foreground">Бесплатно</div>
+                      </div>
+                    </Label>
+                  </div>
+                </RadioGroup>
               </div>
+
+              {formData.deliveryType !== 'pickup' && (
+                <>
+                  <div>
+                    <Label htmlFor="address">Адрес доставки *</Label>
+                    <Input
+                      id="address"
+                      required
+                      value={formData.address}
+                      onChange={(e) => setFormData({ ...formData, address: e.target.value })}
+                      placeholder="г. Симферополь, ул. Примерная, д. 1"
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <Label htmlFor="deliveryDate">Дата доставки *</Label>
+                      <Input
+                        id="deliveryDate"
+                        type="date"
+                        required
+                        value={formData.deliveryDate}
+                        onChange={(e) => setFormData({ ...formData, deliveryDate: e.target.value })}
+                        min={new Date().toISOString().split('T')[0]}
+                      />
+                    </div>
+                    <div>
+                      <Label htmlFor="deliveryTime">Время *</Label>
+                      <Select
+                        value={formData.deliveryTime}
+                        onValueChange={(value) => setFormData({ ...formData, deliveryTime: value })}
+                      >
+                        <SelectTrigger id="deliveryTime">
+                          <SelectValue placeholder="Выберите" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="9-12">9:00 - 12:00</SelectItem>
+                          <SelectItem value="12-15">12:00 - 15:00</SelectItem>
+                          <SelectItem value="15-18">15:00 - 18:00</SelectItem>
+                          <SelectItem value="18-21">18:00 - 21:00</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                  </div>
+                </>
+              )}
+
+              {formData.deliveryType === 'pickup' && (
+                <div className="bg-muted/50 border rounded-lg p-4">
+                  <div className="flex items-start gap-2">
+                    <Icon name="MapPin" size={18} className="text-primary mt-0.5" />
+                    <div className="text-sm">
+                      <div className="font-semibold mb-1">Адреса для самовывоза:</div>
+                      <div className="text-muted-foreground space-y-1">
+                        <div>📍 г. Симферополь, ул. Элеваторная 4</div>
+                        <div>📍 г. Керчь, ул Мирошника 57</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
 
               <div>
                 <Label htmlFor="comment">Комментарий к заказу</Label>
