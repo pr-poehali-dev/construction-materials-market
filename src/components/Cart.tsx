@@ -189,7 +189,7 @@ const Cart = () => {
                       <Icon name="Truck" size={18} />
                       <div>
                         <div className="font-semibold">Стандартная доставка</div>
-                        <div className="text-xs text-muted-foreground">3-5 рабочих дней</div>
+                        <div className="text-xs text-muted-foreground">Обычная обработка заказа</div>
                       </div>
                     </Label>
                   </div>
@@ -199,7 +199,7 @@ const Cart = () => {
                       <Icon name="Zap" size={18} />
                       <div>
                         <div className="font-semibold">Экспресс-доставка</div>
-                        <div className="text-xs text-muted-foreground">1-2 рабочих дня</div>
+                        <div className="text-xs text-muted-foreground">Быстрая обработка и отправка</div>
                       </div>
                     </Label>
                   </div>
@@ -251,10 +251,11 @@ const Cart = () => {
                           <SelectValue placeholder="Выберите" />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="9-12">9:00 - 12:00</SelectItem>
-                          <SelectItem value="12-15">12:00 - 15:00</SelectItem>
-                          <SelectItem value="15-18">15:00 - 18:00</SelectItem>
-                          <SelectItem value="18-21">18:00 - 21:00</SelectItem>
+                          <SelectItem value="8-11">8:00 - 11:00</SelectItem>
+                          <SelectItem value="11-13">11:00 - 13:00</SelectItem>
+                          <SelectItem value="13-15">13:00 - 15:00</SelectItem>
+                          <SelectItem value="15-17">15:00 - 17:00</SelectItem>
+                          <SelectItem value="17-19">17:00 - 19:00</SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
