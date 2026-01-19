@@ -35,7 +35,7 @@ const Cart = () => {
   });
 
   const deliveryCost = formData.deliveryType === 'pickup' ? 0 : 
-                       formData.deliveryType === 'express' ? 800 : 500;
+                       formData.deliveryType === 'express' ? 2100 : 1800;
   const isFreeDelivery = totalPrice >= 75000;
   const finalDeliveryCost = isFreeDelivery ? 0 : deliveryCost;
   const finalTotal = totalPrice + finalDeliveryCost;
@@ -123,7 +123,13 @@ const Cart = () => {
                         >
                           <Icon name="Minus" size={14} />
                         </Button>
-                        <span className="w-8 text-center font-medium">{item.quantity}</span>
+                        <Input
+                          type="number"
+                          min="1"
+                          value={item.quantity}
+                          onChange={(e) => updateQuantity(item.id, parseInt(e.target.value) || 1)}
+                          className="w-16 h-7 text-center"
+                        />
                         <Button
                           variant="outline"
                           size="icon"
@@ -221,9 +227,9 @@ const Cart = () => {
                       <Icon name="Truck" size={18} />
                       <div className="flex-1">
                         <div className="font-semibold">Стандартная доставка</div>
-                        <div className="text-xs text-muted-foreground">Обычная обработка заказа</div>
+                        <div className="text-xs text-muted-foreground">В пределах города</div>
                       </div>
-                      <div className="text-sm font-semibold text-right">500₽</div>
+                      <div className="text-sm font-semibold text-right">1800₽</div>
                     </Label>
                   </div>
                   <div className="flex items-center space-x-2 border rounded-lg p-3 hover:bg-muted/50 cursor-pointer">
@@ -234,7 +240,7 @@ const Cart = () => {
                         <div className="font-semibold">Экспресс-доставка</div>
                         <div className="text-xs text-muted-foreground">Быстрая обработка и отправка</div>
                       </div>
-                      <div className="text-sm font-semibold text-right">800₽</div>
+                      <div className="text-sm font-semibold text-right">2100₽</div>
                     </Label>
                   </div>
                   <div className="flex items-center space-x-2 border rounded-lg p-3 hover:bg-muted/50 cursor-pointer">
