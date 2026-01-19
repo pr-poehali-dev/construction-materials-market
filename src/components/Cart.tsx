@@ -31,7 +31,14 @@ const Cart = () => {
     deliveryType: 'standard',
     deliveryDate: '',
     deliveryTime: '',
+    productRequest: '',
   });
+
+  const deliveryCost = formData.deliveryType === 'pickup' ? 0 : 
+                       formData.deliveryType === 'express' ? 800 : 500;
+  const isFreeDelivery = totalPrice >= 75000;
+  const finalDeliveryCost = isFreeDelivery ? 0 : deliveryCost;
+  const finalTotal = totalPrice + finalDeliveryCost;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -56,7 +63,7 @@ const Cart = () => {
       });
 
       clearCart();
-      setFormData({ name: '', phone: '', address: '', comment: '', deliveryType: 'standard', deliveryDate: '', deliveryTime: '' });
+      setFormData({ name: '', phone: '', address: '', comment: '', deliveryType: 'standard', deliveryDate: '', deliveryTime: '', productRequest: '' });
       setIsOpen(false);
     } catch (error) {
       toast({
@@ -144,9 +151,34 @@ const Cart = () => {
             <Separator />
 
             <div className="space-y-2">
+              <div className="flex justify-between text-sm">
+                <span>Товары:</span>
+                <span className="font-semibold">{totalPrice}₽</span>
+              </div>
+              {formData.deliveryType !== 'pickup' && (
+                <div className="flex justify-between text-sm">
+                  <span>Доставка:</span>
+                  <span className="font-semibold">
+                    {isFreeDelivery ? (
+                      <span className="text-green-600">Бесплатно</span>
+                    ) : (
+                      <>{finalDeliveryCost}₽</>
+                    )}
+                  </span>
+                </div>
+              )}
+              {isFreeDelivery && formData.deliveryType !== 'pickup' && (
+                <div className="bg-green-50 border border-green-200 rounded-lg p-2">
+                  <p className="text-xs text-green-700 flex items-center gap-1">
+                    <Icon name="CheckCircle" size={14} />
+                    Бесплатная доставка при заказе от 75.000₽
+                  </p>
+                </div>
+              )}
+              <Separator />
               <div className="flex justify-between text-lg font-bold">
                 <span>Итого:</span>
-                <span>{totalPrice}₽</span>
+                <span>{finalTotal}₽</span>
               </div>
             </div>
 
@@ -187,30 +219,33 @@ const Cart = () => {
                     <RadioGroupItem value="standard" id="standard" />
                     <Label htmlFor="standard" className="flex items-center gap-2 cursor-pointer flex-1">
                       <Icon name="Truck" size={18} />
-                      <div>
+                      <div className="flex-1">
                         <div className="font-semibold">Стандартная доставка</div>
                         <div className="text-xs text-muted-foreground">Обычная обработка заказа</div>
                       </div>
+                      <div className="text-sm font-semibold text-right">500₽</div>
                     </Label>
                   </div>
                   <div className="flex items-center space-x-2 border rounded-lg p-3 hover:bg-muted/50 cursor-pointer">
                     <RadioGroupItem value="express" id="express" />
                     <Label htmlFor="express" className="flex items-center gap-2 cursor-pointer flex-1">
                       <Icon name="Zap" size={18} />
-                      <div>
+                      <div className="flex-1">
                         <div className="font-semibold">Экспресс-доставка</div>
                         <div className="text-xs text-muted-foreground">Быстрая обработка и отправка</div>
                       </div>
+                      <div className="text-sm font-semibold text-right">800₽</div>
                     </Label>
                   </div>
                   <div className="flex items-center space-x-2 border rounded-lg p-3 hover:bg-muted/50 cursor-pointer">
                     <RadioGroupItem value="pickup" id="pickup" />
                     <Label htmlFor="pickup" className="flex items-center gap-2 cursor-pointer flex-1">
                       <Icon name="MapPin" size={18} />
-                      <div>
+                      <div className="flex-1">
                         <div className="font-semibold">Самовывоз</div>
-                        <div className="text-xs text-muted-foreground">Бесплатно</div>
+                        <div className="text-xs text-muted-foreground">Со складов в Симферополе и Керчи</div>
                       </div>
+                      <div className="text-sm font-semibold text-green-600 text-right">Бесплатно</div>
                     </Label>
                   </div>
                 </RadioGroup>
@@ -306,13 +341,24 @@ const Cart = () => {
               )}
 
               <div>
+                <Label htmlFor="productRequest">Нужен товар, которого нет в каталоге?</Label>
+                <Textarea
+                  id="productRequest"
+                  value={formData.productRequest}
+                  onChange={(e) => setFormData({ ...formData, productRequest: e.target.value })}
+                  placeholder="Опишите желаемый товар, мы постараемся найти его для вас"
+                  rows={2}
+                />
+              </div>
+
+              <div>
                 <Label htmlFor="comment">Комментарий к заказу</Label>
                 <Textarea
                   id="comment"
                   value={formData.comment}
                   onChange={(e) => setFormData({ ...formData, comment: e.target.value })}
                   placeholder="Укажите пожелания к заказу"
-                  rows={3}
+                  rows={2}
                 />
               </div>
 
