@@ -251,13 +251,40 @@ const Cart = () => {
                           <SelectValue placeholder="Выберите" />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="8-11">8:00 - 11:00</SelectItem>
-                          <SelectItem value="11-13">11:00 - 13:00</SelectItem>
-                          <SelectItem value="13-15">13:00 - 15:00</SelectItem>
-                          <SelectItem value="15-17">15:00 - 17:00</SelectItem>
-                          <SelectItem value="17-19">17:00 - 19:00</SelectItem>
+                          {formData.deliveryType === 'express' ? (
+                            <>
+                              <SelectItem value="8-9">8:00 - 9:00</SelectItem>
+                              <SelectItem value="9-10">9:00 - 10:00</SelectItem>
+                              <SelectItem value="10-11">10:00 - 11:00</SelectItem>
+                              <SelectItem value="11-12">11:00 - 12:00</SelectItem>
+                              <SelectItem value="12-13">12:00 - 13:00</SelectItem>
+                              <SelectItem value="13-14">13:00 - 14:00</SelectItem>
+                              <SelectItem value="14-15">14:00 - 15:00</SelectItem>
+                              <SelectItem value="15-16">15:00 - 16:00</SelectItem>
+                              <SelectItem value="16-17">16:00 - 17:00</SelectItem>
+                              <SelectItem value="17-18">17:00 - 18:00</SelectItem>
+                              <SelectItem value="18-19">18:00 - 19:00</SelectItem>
+                            </>
+                          ) : (
+                            <>
+                              <SelectItem value="8-11">8:00 - 11:00</SelectItem>
+                              <SelectItem value="11-13">11:00 - 13:00</SelectItem>
+                              <SelectItem value="13-15">13:00 - 15:00</SelectItem>
+                              <SelectItem value="15-17">15:00 - 17:00</SelectItem>
+                              <SelectItem value="17-19">17:00 - 19:00</SelectItem>
+                            </>
+                          )}
                         </SelectContent>
                       </Select>
+                    </div>
+                  </div>
+
+                  <div className="bg-blue-50 border border-blue-200 rounded-lg p-3">
+                    <div className="flex items-start gap-2">
+                      <Icon name="Phone" size={16} className="text-blue-600 mt-0.5" />
+                      <p className="text-xs text-blue-800">
+                        После оформления мы свяжемся с вами для подтверждения заказа и уточнения деталей доставки.
+                      </p>
                     </div>
                   </div>
                 </>
