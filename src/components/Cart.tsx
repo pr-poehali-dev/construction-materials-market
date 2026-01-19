@@ -128,9 +128,27 @@ const Cart = () => {
                   <div className="flex-1">
                     <h4 className="font-semibold text-sm mb-1">{item.name}</h4>
                     {item.stock && (
-                      <p className="text-xs text-muted-foreground mb-2">
-                        В наличии: {item.stock} шт.
-                      </p>
+                      <div className="flex items-center gap-1.5 mb-2">
+                        {item.stock <= 3 ? (
+                          <>
+                            <Icon name="AlertTriangle" size={12} className="text-orange-500" />
+                            <p className="text-xs text-orange-600 font-medium">
+                              Осталось мало: {item.stock} шт.
+                            </p>
+                          </>
+                        ) : item.stock <= 10 ? (
+                          <>
+                            <Icon name="Package" size={12} className="text-yellow-600" />
+                            <p className="text-xs text-yellow-700">
+                              В наличии: {item.stock} шт.
+                            </p>
+                          </>
+                        ) : (
+                          <p className="text-xs text-muted-foreground">
+                            В наличии: {item.stock} шт.
+                          </p>
+                        )}
+                      </div>
                     )}
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
