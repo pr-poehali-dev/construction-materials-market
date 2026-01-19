@@ -136,7 +136,7 @@ const Delivery = () => {
                 <Icon name="Info" size={20} className="text-primary mt-0.5" />
                 <p className="text-sm text-muted-foreground">
                   Бесплатная доставка при заказе от 50 000₽ в пределах 30 км от
-                  МКАД
+                  Симферополя
                 </p>
               </div>
             </Card>
@@ -155,12 +155,7 @@ const Delivery = () => {
                     Онлайн-оплата
                   </h4>
                   <ul className="space-y-3">
-                    {[
-                      "Банковские карты (Visa, MasterCard, МИР)",
-                      "Яндекс.Касса",
-                      "Электронные кошельки",
-                      "Оплата по QR-коду",
-                    ].map((method, i) => (
+                    {["Яндекс.Касса"].map((method, i) => (
                       <li
                         key={i}
                         className="flex items-center gap-2 text-muted-foreground"
@@ -180,7 +175,7 @@ const Delivery = () => {
                   <ul className="space-y-3">
                     {[
                       "Наличными курьеру",
-                      "Наличными в пункте выдачи",
+                      "Наличными в пункте загрузки",
                       "Безналичный расчет для юр. лиц",
                       "Оплата по счету",
                     ].map((method, i) => (
