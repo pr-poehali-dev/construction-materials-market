@@ -119,7 +119,7 @@ const Categories = () => {
       color: "bg-yellow-500",
       image:
         "https://cdn.poehali.dev/projects/957da87a-22f2-4490-82de-9f00287df06f/files/9b3417dc-ed3d-407f-815e-66a43c18cb9d.jpg",
-    }
+    },
     {
       id: 13,
       name: "Вентиляция",
@@ -128,7 +128,7 @@ const Categories = () => {
       color: "bg-yellow-500",
       image:
         "https://cdn.poehali.dev/projects/957da87a-22f2-4490-82de-9f00287df06f/files/9b3417dc-ed3d-407f-815e-66a43c18cb9d.jpg",
-    }
+    },
     {
       id: 14,
       name: "Санфаянс",
@@ -137,17 +137,16 @@ const Categories = () => {
       color: "bg-yellow-500",
       image:
         "https://cdn.poehali.dev/projects/957da87a-22f2-4490-82de-9f00287df06f/files/9b3417dc-ed3d-407f-815e-66a43c18cb9d.jpg",
-     }
-     {
-       id: 15,
+    },
+    {
+      id: 15,
       name: "Профиля,Маяки,уголки",
       icon: "Wrench",
       itemCount: 333,
       color: "bg-yellow-500",
       image:
         "https://cdn.poehali.dev/projects/957da87a-22f2-4490-82de-9f00287df06f/files/9b3417dc-ed3d-407f-815e-66a43c18cb9d.jpg",
-     }
-      
+    },
   ];
 
   const handleCategoryClick = (categoryName: string) => {
