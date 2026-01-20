@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import Cart from './Cart';
+import Favorites from './Favorites';
 
 const Header = () => {
   const [activeSection, setActiveSection] = useState('home');
@@ -55,11 +56,8 @@ const Header = () => {
             <Button variant="ghost" size="icon">
               <Icon name="Search" size={20} />
             </Button>
+            <Favorites />
             <Cart />
-            <Button variant="default">
-              <Icon name="User" size={16} className="mr-2" />
-              Войти
-            </Button>
           </div>
 
           <Sheet>

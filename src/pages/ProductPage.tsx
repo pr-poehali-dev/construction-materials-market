@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import Icon from "@/components/ui/icon";
 import { useCart } from "@/contexts/CartContext";
+import { useFavorites } from "@/contexts/FavoritesContext";
 import { useViewHistory } from "@/contexts/ViewHistoryContext";
 import { useState, useEffect } from "react";
 
@@ -12,6 +13,7 @@ const ProductPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const { addToCart } = useCart();
+  const { addToFavorites, removeFromFavorites, isFavorite } = useFavorites();
   const { viewHistory, addToHistory } = useViewHistory();
   const [quantity, setQuantity] = useState(1);
   const [recommendations, setRecommendations] = useState<Product[]>([]);
@@ -199,6 +201,26 @@ const ProductPage = () => {
                 <Icon name="ShoppingCart" size={20} className="mr-2" />
                 Добавить в корзину
               </Button>
+              <Button
+                size="lg"
+                variant={isFavorite(product.id) ? "default" : "outline"}
+                onClick={() => {
+                  if (isFavorite(product.id)) {
+                    removeFromFavorites(product.id);
+                  } else {
+                    addToFavorites({
+                      id: product.id,
+                      name: product.name,
+                      price: product.price,
+                      image: product.image,
+                      category: product.category,
+                      inStock: product.inStock,
+                    });
+                  }
+                }}
+              >
+                <Icon name={isFavorite(product.id) ? "HeartOff" : "Heart"} size={20} />
+              </Button>
             </div>
 
             <Card className="p-6 mb-6">
@@ -261,10 +283,32 @@ const ProductPage = () => {
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                       />
                       {rec.badge && (
-                        <Badge className="absolute top-3 right-3 bg-orange-500 text-white">
+                        <Badge className="absolute top-3 left-3 bg-orange-500 text-white">
                           {rec.badge}
                         </Badge>
                       )}
+                      <Button
+                        size="icon"
+                        variant={isFavorite(rec.id) ? "default" : "secondary"}
+                        className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          if (isFavorite(rec.id)) {
+                            removeFromFavorites(rec.id);
+                          } else {
+                            addToFavorites({
+                              id: rec.id,
+                              name: rec.name,
+                              price: rec.price,
+                              image: rec.image,
+                              category: rec.category,
+                              inStock: rec.inStock,
+                            });
+                          }
+                        }}
+                      >
+                        <Icon name={isFavorite(rec.id) ? "HeartOff" : "Heart"} size={18} />
+                      </Button>
                     </div>
                     <div className="p-4">
                       <div className="text-xs text-muted-foreground mb-1">

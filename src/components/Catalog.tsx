@@ -15,10 +15,12 @@ import {
 import Icon from "@/components/ui/icon";
 import { Badge } from "@/components/ui/badge";
 import { useCart } from "@/contexts/CartContext";
+import { useFavorites } from "@/contexts/FavoritesContext";
 import { products } from "@/data/products";
 
 const Catalog = () => {
   const { addToCart } = useCart();
+  const { addToFavorites, removeFromFavorites, isFavorite } = useFavorites();
   const navigate = useNavigate();
   const [priceRange, setPriceRange] = useState([0, 50000]);
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
@@ -208,10 +210,25 @@ const Catalog = () => {
                     )}
                     <Button
                       size="icon"
-                      variant="secondary"
+                      variant={isFavorite(product.id) ? "default" : "secondary"}
                       className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        if (isFavorite(product.id)) {
+                          removeFromFavorites(product.id);
+                        } else {
+                          addToFavorites({
+                            id: product.id,
+                            name: product.name,
+                            price: product.price,
+                            image: product.image,
+                            category: product.category,
+                            inStock: product.inStock,
+                          });
+                        }
+                      }}
                     >
-                      <Icon name="Heart" size={18} />
+                      <Icon name={isFavorite(product.id) ? "HeartOff" : "Heart"} size={18} />
                     </Button>
                   </div>
 
