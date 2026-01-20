@@ -104,7 +104,7 @@ const Categories = () => {
     },
     {
       id: 9,
-      name: "Силиконы",
+      name: "Краски",
       icon: "Wrench",
       itemCount: 333,
       color: "bg-yellow-500",
