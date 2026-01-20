@@ -85,7 +85,7 @@ const Categories = () => {
         "https://cdn.poehali.dev/projects/957da87a-22f2-4490-82de-9f00287df06f/files/9b3417dc-ed3d-407f-815e-66a43c18cb9d.jpg",
     },
     {
-      id: 9,
+      id: 10,
       name: "Пластификаторы",
       icon: "Wrench",
       itemCount: 333,
@@ -94,7 +94,7 @@ const Categories = () => {
         "https://cdn.poehali.dev/projects/957da87a-22f2-4490-82de-9f00287df06f/files/9b3417dc-ed3d-407f-815e-66a43c18cb9d.jpg",
     },
     {
-      id: 9,
+      id: 10,
       name: "Силиконы",
       icon: "Wrench",
       itemCount: 333,
@@ -103,7 +103,7 @@ const Categories = () => {
         "https://cdn.poehali.dev/projects/957da87a-22f2-4490-82de-9f00287df06f/files/9b3417dc-ed3d-407f-815e-66a43c18cb9d.jpg",
     },
     {
-      id: 9,
+      id: 11,
       name: "Краски",
       icon: "Wrench",
       itemCount: 333,
@@ -111,6 +111,43 @@ const Categories = () => {
       image:
         "https://cdn.poehali.dev/projects/957da87a-22f2-4490-82de-9f00287df06f/files/9b3417dc-ed3d-407f-815e-66a43c18cb9d.jpg",
     },
+    {
+      id: 12,
+      name: "Краски",
+      icon: "Wrench",
+      itemCount: 333,
+      color: "bg-yellow-500",
+      image:
+        "https://cdn.poehali.dev/projects/957da87a-22f2-4490-82de-9f00287df06f/files/9b3417dc-ed3d-407f-815e-66a43c18cb9d.jpg",
+    }
+    {
+      id: 13,
+      name: "Вентиляция",
+      icon: "Wrench",
+      itemCount: 333,
+      color: "bg-yellow-500",
+      image:
+        "https://cdn.poehali.dev/projects/957da87a-22f2-4490-82de-9f00287df06f/files/9b3417dc-ed3d-407f-815e-66a43c18cb9d.jpg",
+    }
+    {
+      id: 14,
+      name: "Санфаянс",
+      icon: "Wrench",
+      itemCount: 333,
+      color: "bg-yellow-500",
+      image:
+        "https://cdn.poehali.dev/projects/957da87a-22f2-4490-82de-9f00287df06f/files/9b3417dc-ed3d-407f-815e-66a43c18cb9d.jpg",
+     }
+     {
+       id: 15,
+      name: "Профиля,Маяки,уголки",
+      icon: "Wrench",
+      itemCount: 333,
+      color: "bg-yellow-500",
+      image:
+        "https://cdn.poehali.dev/projects/957da87a-22f2-4490-82de-9f00287df06f/files/9b3417dc-ed3d-407f-815e-66a43c18cb9d.jpg",
+     }
+      
   ];
 
   const handleCategoryClick = (categoryName: string) => {
