@@ -135,7 +135,7 @@ const Delivery = () => {
               <div className="mt-6 p-4 bg-primary/10 rounded-lg flex items-start gap-3">
                 <Icon name="Info" size={20} className="text-primary mt-0.5" />
                 <p className="text-sm text-muted-foreground">
-                  Бесплатная доставка при заказе от 50 000₽ в пределах 30 км от
+                  Бесплатная доставка при заказе от 75 000₽ в пределах 30 км от
                   Симферополя
                 </p>
               </div>
