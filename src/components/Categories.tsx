@@ -95,7 +95,16 @@ const Categories = () => {
     },
     {
       id: 9,
-      name: "Пены монтажные",
+      name: "Силиконы",
+      icon: "Wrench",
+      itemCount: 333,
+      color: "bg-yellow-500",
+      image:
+        "https://cdn.poehali.dev/projects/957da87a-22f2-4490-82de-9f00287df06f/files/9b3417dc-ed3d-407f-815e-66a43c18cb9d.jpg",
+    },
+    {
+      id: 9,
+      name: "Силиконы",
       icon: "Wrench",
       itemCount: 333,
       color: "bg-yellow-500",
