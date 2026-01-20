@@ -9,8 +9,7 @@ const Categories = () => {
       icon: "Square",
       itemCount: 245,
       color: "bg-orange-500",
-      image:
-        "https://cdn.poehali.dev/projects/957da87a-22f2-4490-82de-9f00287df06f/files/d8a7680c-4a19-4576-8814-a5d3d1df6a08.jpg",
+      image: "https://imgfy.ru/7MXMfXD7ARolj4k",
     },
     {
       id: 2,
