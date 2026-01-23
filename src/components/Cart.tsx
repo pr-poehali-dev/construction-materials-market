@@ -288,7 +288,7 @@ const Cart = () => {
                       <Icon name="MapPin" size={18} />
                       <div className="flex-1">
                         <div className="font-semibold">Самовывоз</div>
-                        <div className="text-xs text-muted-foreground">Со складов в Симферополе и Керчи</div>
+                        <div className="text-xs text-muted-foreground">Со складов в Симферополе </div>
                       </div>
                       <div className="text-sm font-semibold text-green-600 text-right">Бесплатно</div>
                     </Label>
