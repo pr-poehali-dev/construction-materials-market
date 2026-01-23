@@ -30,9 +30,8 @@ const About = () => {
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
           <div>
-            <h2 className="text-4xl font-bold text-foreground mb-6">
-              О компании Пенопласт
-            </h2>
+            <h2 className="text-4xl font-bold text-foreground mb-6">О компании ПроСтрой
+</h2>
             <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
               Мы работаем на рынке строительных материалов уже более 15 лет. За
               это время мы построили крепкие отношения с ведущими
