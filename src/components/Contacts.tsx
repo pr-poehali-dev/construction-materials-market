@@ -114,7 +114,7 @@ const Contacts = () => {
               </h4>
               <div className="space-y-3 text-sm text-muted-foreground">
                 <p>📍 г. Симферополь, ул. Элеваторная 4</p>
-                <p>📍г. Керчь, ул Мирошника 57</p>
+                <p></p>
                 <p></p>
               </div>
             </Card>
