@@ -2,11 +2,14 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { Input } from '@/components/ui/input';
 import Cart from './Cart';
 import Favorites from './Favorites';
 
 const Header = () => {
   const [activeSection, setActiveSection] = useState('home');
+  const [showSearch, setShowSearch] = useState(false);
+  const [searchValue, setSearchValue] = useState('');
 
   const menuItems = [
     { id: 'home', label: 'Главная', icon: 'Home' },
@@ -20,6 +23,21 @@ const Header = () => {
     setActiveSection(sectionId);
     const element = document.getElementById(sectionId);
     element?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const handleSearch = () => {
+    if (searchValue.trim()) {
+      scrollToSection('catalog');
+      setTimeout(() => {
+        const catalogSearchInput = document.querySelector('#catalog input[placeholder="Найти товар..."]') as HTMLInputElement;
+        if (catalogSearchInput) {
+          catalogSearchInput.value = searchValue;
+          catalogSearchInput.dispatchEvent(new Event('input', { bubbles: true }));
+        }
+      }, 500);
+      setShowSearch(false);
+      setSearchValue('');
+    }
   };
 
   return (
@@ -52,9 +70,32 @@ const Header = () => {
           </nav>
 
           <div className="hidden lg:flex items-center gap-3">
-            <Button variant="ghost" size="icon">
-              <Icon name="Search" size={20} />
-            </Button>
+            {showSearch ? (
+              <div className="flex items-center gap-2 animate-fade-in">
+                <Input
+                  type="text"
+                  placeholder="Поиск товаров..."
+                  value={searchValue}
+                  onChange={(e) => setSearchValue(e.target.value)}
+                  onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
+                  className="w-64"
+                  autoFocus
+                />
+                <Button variant="default" size="icon" onClick={handleSearch}>
+                  <Icon name="Search" size={20} />
+                </Button>
+                <Button variant="ghost" size="icon" onClick={() => {
+                  setShowSearch(false);
+                  setSearchValue('');
+                }}>
+                  <Icon name="X" size={20} />
+                </Button>
+              </div>
+            ) : (
+              <Button variant="ghost" size="icon" onClick={() => setShowSearch(true)}>
+                <Icon name="Search" size={20} />
+              </Button>
+            )}
             <Favorites />
             <Cart />
           </div>
