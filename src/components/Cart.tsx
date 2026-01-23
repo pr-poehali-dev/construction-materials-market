@@ -378,7 +378,7 @@ const Cart = () => {
                       <div className="font-semibold mb-1">Адреса для самовывоза:</div>
                       <div className="text-muted-foreground space-y-1">
                         <div>📍 г. Симферополь, ул. Элеваторная 4</div>
-                        <div>📍 г. Керчь, ул Мирошника 57</div>
+                        <div></div>
                       </div>
                     </div>
                   </div>
