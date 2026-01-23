@@ -31,7 +31,7 @@ const Header = () => {
               <Icon name="Hammer" size={24} />
             </div>
             <div>
-              <h1 className="text-xl font-bold text-foreground">Стройпро</h1>
+              <h1 className="text-xl font-bold text-foreground">Прострой</h1>
               <p className="text-xs text-muted-foreground">Всё для строительства</p>
             </div>
           </div>
