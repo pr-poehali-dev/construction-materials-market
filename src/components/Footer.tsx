@@ -39,7 +39,7 @@ const Footer = () => {
                 <Icon name="Hammer" size={24} />
               </div>
               <div>
-                <h3 className="text-lg font-bold">СтройМаркет</h3>
+                <h3 className="text-lg font-bold">ПроСтрой</h3>
                 <p className="text-xs text-background/70">С 2009 года</p>
               </div>
             </div>
