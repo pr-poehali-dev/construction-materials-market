@@ -127,7 +127,7 @@ const Footer = () => {
 
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-4 text-sm text-background/70">
-            <span>© 2024 СтройМаркет</span>
+            <span>© 2026  СтройПро</span>
             <a href="#" className="hover:text-primary transition-colors">
               Политика конфиденциальности
             </a>
