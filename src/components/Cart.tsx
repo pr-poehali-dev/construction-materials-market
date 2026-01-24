@@ -32,6 +32,7 @@ const Cart = () => {
     deliveryDate: '',
     deliveryTime: '',
     productRequest: '',
+    paymentMethod: 'online',
   });
 
   const deliveryCost = formData.deliveryType === 'pickup' ? 0 : 
@@ -77,7 +78,7 @@ const Cart = () => {
       });
 
       clearCart();
-      setFormData({ name: '', phone: '', address: '', comment: '', deliveryType: 'standard', deliveryDate: '', deliveryTime: '', productRequest: '' });
+      setFormData({ name: '', phone: '', address: '', comment: '', deliveryType: 'standard', deliveryDate: '', deliveryTime: '', productRequest: '', paymentMethod: 'online' });
       setIsOpen(false);
     } catch (error) {
       toast({
@@ -385,6 +386,43 @@ const Cart = () => {
                 </div>
               )}
 
+              <div className="space-y-3">
+                <Label className="text-base font-semibold flex items-center gap-2">
+                  <Icon name="CreditCard" size={18} />
+                  Способ оплаты *
+                </Label>
+                <RadioGroup
+                  value={formData.paymentMethod}
+                  onValueChange={(value) => setFormData({ ...formData, paymentMethod: value })}
+                  className="space-y-3"
+                >
+                  <div className="flex items-start space-x-3 border rounded-lg p-4 cursor-pointer hover:bg-muted/50 transition-colors">
+                    <RadioGroupItem value="online" id="payment-online" className="mt-0.5" />
+                    <div className="flex-1">
+                      <Label htmlFor="payment-online" className="cursor-pointer font-medium">
+                        Онлайн оплата
+                      </Label>
+                      <p className="text-sm text-muted-foreground mt-1">
+                        Картой через Яндекс Кассу (безопасно)
+                      </p>
+                    </div>
+                    <Icon name="CreditCard" size={20} className="text-primary" />
+                  </div>
+                  <div className="flex items-start space-x-3 border rounded-lg p-4 cursor-pointer hover:bg-muted/50 transition-colors">
+                    <RadioGroupItem value="cash" id="payment-cash" className="mt-0.5" />
+                    <div className="flex-1">
+                      <Label htmlFor="payment-cash" className="cursor-pointer font-medium">
+                        Наличными при получении
+                      </Label>
+                      <p className="text-sm text-muted-foreground mt-1">
+                        Оплата водителю при доставке
+                      </p>
+                    </div>
+                    <Icon name="Wallet" size={20} className="text-primary" />
+                  </div>
+                </RadioGroup>
+              </div>
+
               <div>
                 <Label htmlFor="productRequest">Нужен товар, которого нет в каталоге?</Label>
                 <Textarea
@@ -426,8 +464,8 @@ const Cart = () => {
                   </>
                 ) : (
                   <>
-                    <Icon name="Send" size={20} className="mr-2" />
-                    Оформить заказ
+                    <Icon name={formData.paymentMethod === 'online' ? 'CreditCard' : 'ShoppingCart'} size={20} className="mr-2" />
+                    {formData.paymentMethod === 'online' ? 'Перейти к оплате' : 'Оформить заказ'} ({finalTotal}₽)
                   </>
                 )}
               </Button>
