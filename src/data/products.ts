@@ -172,6 +172,48 @@ export const products: Product[] = [
     ],
     warehouseStock: 78,
   },
+  {
+    id: 8,
+    name: "Карандаш WADFOW 7шт",
+    category: "Инструменты",
+    price: 100,
+    rating: 4.5,
+    reviews: 0,
+    inStock: true,
+    image:
+      "https://cdn.poehali.dev/projects/957da87a-22f2-4490-82de-9f00287df06f/files/4aed0e6d-dd28-4c31-9ba7-a4dd1638b4d0.jpg",
+    description:
+      "Набор карандашей WADFOW из 7 штук. Качественные карандаши для разметки и чертежных работ.",
+    warehouseStock: 153000,
+  },
+  {
+    id: 9,
+    name: "Карандаш малярный двухцветный 176 мм",
+    category: "Инструменты",
+    price: 100,
+    rating: 4.5,
+    reviews: 0,
+    inStock: true,
+    image:
+      "https://cdn.poehali.dev/projects/957da87a-22f2-4490-82de-9f00287df06f/files/4aed0e6d-dd28-4c31-9ba7-a4dd1638b4d0.jpg",
+    description:
+      "Двухцветный малярный карандаш длиной 176 мм. Удобен для разметки на различных поверхностях.",
+    warehouseStock: 34000,
+  },
+  {
+    id: 10,
+    name: "Карандаш столярный",
+    category: "Инструменты",
+    price: 100,
+    rating: 4.5,
+    reviews: 0,
+    inStock: true,
+    image:
+      "https://cdn.poehali.dev/projects/957da87a-22f2-4490-82de-9f00287df06f/files/4aed0e6d-dd28-4c31-9ba7-a4dd1638b4d0.jpg",
+    description:
+      "Столярный карандаш для разметки по дереву. Прочный грифель, удобная форма.",
+    warehouseStock: 113000,
+  },
 ];
 
 export const getProductById = (id: number): Product | undefined => {
